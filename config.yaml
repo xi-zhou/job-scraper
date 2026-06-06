@@ -1,0 +1,83 @@
+# Shared LinkedIn + Indeed Job Crawler Configuration
+
+# Job search criteria
+search:
+  # Location settings for Munich, Germany
+  location: "Munich"
+  geo_id: "100477049"  # LinkedIn geo ID for Munich
+  distance: 25  # Search radius in kilometers
+
+  # Job positions to search for
+  positions:
+    - "Software Engineer"
+
+  # LinkedIn filter codes
+  # Job type: F = Full-time, P = Part-time, C = Contract, T = Temporary, V = Volunteer, I = Internship
+  job_type: "F"
+
+  # Experience levels: 1 = Internship, 2 = Entry level, 3 = Associate, 4 = Mid-Senior level, 5 = Director, 6 = Executive
+  # For under 3 years experience, use: 2,3,4 (Entry level, Associate, some Mid-Senior)
+  experience_levels: "3,4"
+
+  # Time filter codes: r86400 = 24h, r604800 = 1 week, r2592000 = 1 month
+  time_filter: "r1728000"  # Last 48 hours
+
+  # Keywords for relevance scoring (these don't filter, just help rank results)
+  keywords:
+    - "Python"
+
+  exclude_sponsored: true
+  max_results: 50
+
+  # Indeed-specific overrides appended under the shared LinkedIn config
+  indeed:
+    job_type: "fulltime"
+    days_ago: 3
+
+# Post-scraping filters
+# These are applied after jobs are retrieved from Apify
+filters:
+  # Minimum company size (number of employees)
+  min_employee_count: 1000
+  nokeywords:
+    - "Defense"
+    - "Cyber"
+    - "Tax"
+    - "Legal"
+    - "Compliance"
+    - "Human Resources"
+    - "Recruiter"
+    - "Einkauf"
+    - "SAP"
+
+  # Time filter validation (in hours)
+  # Double-check job posting times
+  hours_ago: 48
+
+  # Indeed-specific overrides appended under the shared filters
+  indeed:
+    # Minimum number of company reviews on Indeed
+    min_reviews_count: 100
+
+# Apify configuration
+apify:
+  actor_id: "curious_coder/linkedin-jobs-scraper"
+  indeed_actor_id: "misceres/indeed-scraper"
+  timeout_secs: 300
+
+# Telegram configuration
+telegram:
+  # Character threshold for using LLM to summarize job descriptions
+  # Set to 0 to process all descriptions with Claude API
+  description_llm_threshold: 0
+  max_jobs_per_message: 10
+
+# LLM configuration for job description processing
+llm:
+  # Claude model to use
+  # Options: claude-3-haiku-20240307 (cheapest), claude-3-5-sonnet-20241022 (best quality)
+  model: "claude-haiku-4-5-20251001"
+  # Maximum tokens for LLM response
+  max_tokens: 300
+  # Enable LLM processing for long descriptions
+  enabled: true
