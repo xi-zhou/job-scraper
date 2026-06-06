@@ -141,6 +141,7 @@ async def run_job_search(config_path: str = "config.yaml", local_json_path: Opti
         days_ago=indeed_search.get('days_ago', 7),
         max_results=indeed_search.get('max_results', search_config.get('max_results', 50)),
         job_type=indeed_search.get('job_type', search_config.get('job_type', 'fulltime')),
+        save_json=os.getenv("AWS_LAMBDA_FUNCTION_NAME") is None,
         output_base_dir=config.get('output_dir', 'data'),
         config_name=config_name,
         local_json_path=local_json_path

@@ -11,6 +11,7 @@ infra/terraform/terraform.tfstate.backup
 .terraform.lock.hcl
 terraform.tfvar
 
+
 # Python
 __pycache__/
 *.py[cod]
