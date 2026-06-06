@@ -1,9 +1,15 @@
 # Environment variables
 .env
+.lambda_build/
 
 # data
 data/*
 scripts/*
+infra/terraform/.terraform/*
+infra/terraform/terraform.tfstate
+infra/terraform/terraform.tfstate.backup
+.terraform.lock.hcl
+terraform.tfvar
 
 # Python
 __pycache__/

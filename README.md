@@ -8,14 +8,14 @@ A guide to run the LinkedIn and Indeed crawlers, configure filters, and use loca
   - Copy and fill `.env` with `APIFY_API_KEY`, `TELEGRAM_BOT_TOKEN`, and `TELEGRAM_CHAT_ID`.
 
 - **Run:**
-  - LinkedIn: `python linkedin.py -c config-hao.yaml --env .env`
-  - Indeed: `python indeed.py -c config-xi.yaml --env .env`
+  - LinkedIn: `python linkedin.py -c config.yaml --env .env`
+  - Indeed: `python indeed.py -c config.yaml --env .env`
 
 - **Run (local JSON replay):**
   - Provide a directory or single JSON file with `--local-json`:
 
 ```bash
-python linkedin.py -c config.yaml --local-json data/config/20260606 --env .env_xi
+python linkedin.py -c config.yaml --local-json data/config/20260606 --env .env
 ```
 
 **Minimal Config (keys you’ll use often)**
@@ -69,11 +69,11 @@ python linkedin.py --help
 python indeed.py  --help
 
 # Use a specific config
-python linkedin.py -c config-hao.yaml --env .env_hao
-python indeed.py  -c config-xi.yaml  --env .env_xi
+python linkedin.py -c config.yaml --env .env
+python indeed.py  -c config.yaml  --env .env
 
 # Local replay from a folder
-python indeed.py -c config-xi.yaml --local-json data/config/20260606 --env .env_xi
+python indeed.py -c config.yaml --local-json data/config/20260606 --env .env
 ```
 
 **Quick Troubleshooting**
