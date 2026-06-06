@@ -6,6 +6,7 @@ A guide to run the LinkedIn and Indeed crawlers, configure filters, and use loca
 - **Setup:**
   - Create and activate a virtualenv, then install: `pip install -r requirements.txt`
   - Copy and fill `.env` with `APIFY_API_KEY`, `TELEGRAM_BOT_TOKEN`, and `TELEGRAM_CHAT_ID`.
+  - Configure your filter in config.yaml
 
 - **Run:**
   - LinkedIn: `python linkedin.py -c config.yaml --env .env`
