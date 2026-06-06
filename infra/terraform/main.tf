@@ -165,6 +165,7 @@ resource "aws_scheduler_schedule" "xi_linkedin" {
   name                         = "${var.project_name}-xi-linkedin"
   schedule_expression          = var.schedule_xi_linkedin
   schedule_expression_timezone = var.schedule_timezone
+  end_date                     = var.schedule_end_date
 
   flexible_time_window {
     mode = "OFF"
@@ -185,6 +186,7 @@ resource "aws_scheduler_schedule" "hao_linkedin" {
   name                         = "${var.project_name}-hao-linkedin"
   schedule_expression          = var.schedule_hao_linkedin
   schedule_expression_timezone = var.schedule_timezone
+  end_date                     = var.schedule_end_date
 
   flexible_time_window {
     mode = "OFF"
@@ -205,6 +207,7 @@ resource "aws_scheduler_schedule" "hao_indeed" {
   name                         = "${var.project_name}-hao-indeed"
   schedule_expression          = var.schedule_hao_indeed
   schedule_expression_timezone = var.schedule_timezone
+  end_date                     = var.schedule_end_date
 
   flexible_time_window {
     mode = "OFF"

@@ -33,6 +33,13 @@ variable "schedule_timezone" {
   default = "Europe/Berlin"
 }
 
+# UTC RFC3339 cutoff after which schedules stop firing. Set just past the
+# last desired run (19:00 Europe/Berlin on 2026-06-30 = 17:00 UTC).
+variable "schedule_end_date" {
+  type    = string
+  default = "2026-07-01T00:00:00Z"
+}
+
 variable "schedule_xi_linkedin" {
   type    = string
   default = "cron(0 19 * * ? *)"
